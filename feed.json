@@ -1,0 +1,27 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "赵仝",
+    "description": "",
+    "home_page_url": "https://China-zhaotong.github.io",
+    "feed_url": "https://China-zhaotong.github.io/feed.json",
+    "user_comment": "",
+    "author": {
+        "name": "TongCloud"
+    },
+    "items": [
+        {
+            "id": "https://China-zhaotong.github.io/zhao-tong-ce-shi.html",
+            "url": "https://China-zhaotong.github.io/zhao-tong-ce-shi.html",
+            "title": "#昭通测试",
+            "summary": "阿松大阿萨大厦",
+            "content_html": "<p>阿松大阿萨大厦</p>\n",
+            "author": {
+                "name": "TongCloud"
+            },
+            "tags": [
+            ],
+            "date_published": "2022-08-09T21:16:08+08:00",
+            "date_modified": "2022-08-09T21:16:08+08:00"
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>赵仝</title>
+    <link href="https://China-zhaotong.github.io/feed.xml" rel="self" />
+    <link href="https://China-zhaotong.github.io" />
+    <updated>2022-08-09T21:16:08+08:00</updated>
+    <author>
+        <name>TongCloud</name>
+    </author>
+    <id>https://China-zhaotong.github.io</id>
+
+    <entry>
+        <title>#昭通测试</title>
+        <author>
+            <name>TongCloud</name>
+        </author>
+        <link href="https://China-zhaotong.github.io/zhao-tong-ce-shi.html"/>
+        <id>https://China-zhaotong.github.io/zhao-tong-ce-shi.html</id>
+
+        <updated>2022-08-09T21:16:08+08:00</updated>
+            <summary>
+                <![CDATA[
+                    阿松大阿萨大厦
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>阿松大阿萨大厦</p>
+
+            ]]>
+        </content>
+    </entry>
+</feed>
