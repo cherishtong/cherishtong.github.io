@@ -3,12 +3,28 @@
     <title>赵仝</title>
     <link href="https://China-zhaotong.github.io/feed.xml" rel="self" />
     <link href="https://China-zhaotong.github.io" />
-    <updated>2022-08-10T01:01:58+08:00</updated>
+    <updated>2022-08-10T01:11:57+08:00</updated>
     <author>
         <name>TongCloud</name>
     </author>
     <id>https://China-zhaotong.github.io</id>
 
+    <entry>
+        <title>测试2</title>
+        <author>
+            <name>TongCloud</name>
+        </author>
+        <link href="https://China-zhaotong.github.io/ce-shi-2.html"/>
+        <id>https://China-zhaotong.github.io/ce-shi-2.html</id>
+
+        <updated>2022-08-10T01:11:57+08:00</updated>
+            <summary></summary>
+        <content type="html">
+            <![CDATA[
+                <figure class="post__image"><img loading="lazy"  src="https://China-zhaotong.github.io/media/posts/2/wallhaven-l3182l.jpg" sizes="100vw" srcset="https://China-zhaotong.github.io/media/posts/2/responsive/wallhaven-l3182l-xs.jpg 300w ,https://China-zhaotong.github.io/media/posts/2/responsive/wallhaven-l3182l-sm.jpg 480w ,https://China-zhaotong.github.io/media/posts/2/responsive/wallhaven-l3182l-md.jpg 768w ,https://China-zhaotong.github.io/media/posts/2/responsive/wallhaven-l3182l-lg.jpg 1024w ,https://China-zhaotong.github.io/media/posts/2/responsive/wallhaven-l3182l-xl.jpg 1360w ,https://China-zhaotong.github.io/media/posts/2/responsive/wallhaven-l3182l-2xl.jpg 1600w"  alt="123123" width="4000" height="2037"></figure>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>#昭通测试</title>
         <author>
