@@ -3,7 +3,7 @@
     <title>赵仝</title>
     <link href="https://China-zhaotong.github.io/feed.xml" rel="self" />
     <link href="https://China-zhaotong.github.io" />
-    <updated>2022-08-10T00:46:19+08:00</updated>
+    <updated>2022-08-10T01:01:58+08:00</updated>
     <author>
         <name>TongCloud</name>
     </author>
@@ -17,15 +17,15 @@
         <link href="https://China-zhaotong.github.io/zhao-tong-ce-shi.html"/>
         <id>https://China-zhaotong.github.io/zhao-tong-ce-shi.html</id>
 
-        <updated>2022-08-10T00:46:19+08:00</updated>
+        <updated>2022-08-10T01:01:58+08:00</updated>
             <summary>
                 <![CDATA[
-                    阿松大阿萨大厦 大苏打阿松大阿萨大厦大大
+                    HELLOWORLD
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                <p>阿松大阿萨大厦              大苏打阿松大阿萨大厦大大</p>
+                <p>HELLOWORLD</p>
 
             ]]>
         </content>
