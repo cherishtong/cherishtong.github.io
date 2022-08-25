@@ -1,76 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>赵仝</title>
+    <title>热爱编程的小道仝</title>
     <link href="https://China-zhaotong.github.io/feed.xml" rel="self" />
     <link href="https://China-zhaotong.github.io" />
-    <updated>2022-08-13T15:11:45+08:00</updated>
+    <updated>2022-08-26T01:37:43+08:00</updated>
     <author>
-        <name>TongCloud</name>
+        <name>赵仝</name>
     </author>
     <id>https://China-zhaotong.github.io</id>
 
     <entry>
-        <title>1231231</title>
+        <title>打大赛打</title>
         <author>
-            <name>TongCloud</name>
+            <name>赵仝</name>
         </author>
-        <link href="https://China-zhaotong.github.io/1231231.html"/>
-        <id>https://China-zhaotong.github.io/1231231.html</id>
+        <link href="https://China-zhaotong.github.io/da-da-sai-da.html"/>
+        <id>https://China-zhaotong.github.io/da-da-sai-da.html</id>
 
-        <updated>2022-08-13T15:11:45+08:00</updated>
-            <summary>
-                <![CDATA[
-                    $\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <pre><code>$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$
-</code></pre>
-
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>测试2</title>
-        <author>
-            <name>TongCloud</name>
-        </author>
-        <link href="https://China-zhaotong.github.io/ce-shi-2.html"/>
-        <id>https://China-zhaotong.github.io/ce-shi-2.html</id>
-
-        <updated>2022-08-13T15:11:30+08:00</updated>
-            <summary>
-                <![CDATA[
-                    $\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <figure class="post__image"><img loading="lazy"  src="https://China-zhaotong.github.io/media/posts/2/wallhaven-l3182l.jpg" sizes="(max-width: 48em) 100vw, 100vw" srcset="https://China-zhaotong.github.io/media/posts/2/responsive/wallhaven-l3182l-xs.jpg 300w ,https://China-zhaotong.github.io/media/posts/2/responsive/wallhaven-l3182l-sm.jpg 480w ,https://China-zhaotong.github.io/media/posts/2/responsive/wallhaven-l3182l-md.jpg 768w"  alt="123123" width="4000" height="2037"></figure>
-<p>$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$</p>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>#昭通测试</title>
-        <author>
-            <name>TongCloud</name>
-        </author>
-        <link href="https://China-zhaotong.github.io/zhao-tong-ce-shi.html"/>
-        <id>https://China-zhaotong.github.io/zhao-tong-ce-shi.html</id>
-
-        <updated>2022-08-10T01:01:58+08:00</updated>
-            <summary>
-                <![CDATA[
-                    HELLOWORLD
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <p>HELLOWORLD</p>
-
-            ]]>
-        </content>
+        <updated>2022-08-26T01:37:43+08:00</updated>
+            <summary></summary>
+        <content></content>
     </entry>
 </feed>
