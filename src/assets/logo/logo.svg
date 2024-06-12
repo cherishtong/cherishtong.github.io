@@ -1,0 +1,9 @@
+<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="24.0385" cy="25" rx="24.0385" ry="25" fill="#FDFFE7"/>
+    <path d="M25 25C25 38.8071 25 38 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C25 11.75 25 11.1929 25 25Z" fill="#065758"/>
+    <ellipse cx="25" cy="37.5" rx="12.0192" ry="12.5" fill="#FDFFE7"/>
+    <ellipse cx="25" cy="12.5" rx="12.0192" ry="12.5" fill="#065758"/>
+    <ellipse cx="24.7596" cy="12.75" rx="3.60577" ry="3.75" fill="#FDFFE7"/>
+    <ellipse cx="24.7596" cy="37.75" rx="3.60577" ry="3.75" fill="#065758"/>
+    </svg>
+    
