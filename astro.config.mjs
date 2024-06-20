@@ -6,7 +6,7 @@ import vue from "@astrojs/vue";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://china-zhaotong.github.io',
+  site: 'https://cherishtong.github.io',
   integrations: [starlight({
     title: '赵无为',
     customCss: [
