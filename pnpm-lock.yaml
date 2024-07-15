@@ -32,6 +32,9 @@ dependencies:
   vue:
     specifier: ^3.3.12
     version: 3.3.12
+  vue-konva:
+    specifier: ^3.0.2
+    version: 3.0.2(konva@9.3.0)
 
 devDependencies:
   postcss-preset-env:
@@ -5867,6 +5870,15 @@ packages:
         optional: true
     dependencies:
       vite: 5.2.7
+    dev: false
+
+  /vue-konva@3.0.2(konva@9.3.0):
+    resolution: {integrity: sha512-FNWKtPPVDihNuQcq7F4GzuVPkPaEfg8lnWezpRqgiC2VetdvONOiYOFD800jNL5kt/lEYnSOYvhqqdTPbv2c8w==}
+    engines: {node: '>= 4.0.0', npm: '>= 3.0.0'}
+    peerDependencies:
+      konva: '>7'
+    dependencies:
+      konva: 9.3.0
     dev: false
 
   /vue@3.3.12:

@@ -18,6 +18,9 @@ export default defineConfig({
         label: '简体中文',
         lang: 'zh-CN'
       },
+    }, components: {
+      // 重写默认的 `SocialIcons` 组件。
+      SiteTitle: './src/components/astro/SiteTitle.astro',
     },
    
     logo: {

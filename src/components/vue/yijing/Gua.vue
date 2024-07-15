@@ -4,5 +4,5 @@
 
 </template>
 <script setup lang="ts">
-import Konva from 'konva';
-</script> 
+import Konva from 'konva' ;
+</script>

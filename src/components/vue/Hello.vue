@@ -1,3 +1,3 @@
 <template>
-    <h1 class="bg-cyan-300 font-dakai">测试</h1>
+    <h1 class=" font-dakai text-3xl">赵无为</h1>
 </template>
