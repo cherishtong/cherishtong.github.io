@@ -51,5 +51,5 @@ export default defineConfig({
   }), tailwind({
     // 禁用默认的基础样式
     applyBaseStyles: false
-  }), vue()]
+  }), vue({ appEntrypoint: '/src/vueconfig/_app' })]
 });

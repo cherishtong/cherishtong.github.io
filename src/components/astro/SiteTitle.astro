@@ -3,12 +3,7 @@ import Hello from "@vue/Hello.vue";
 const { siteTitle, siteTitleHref } = Astro.props;
 ---
 
-<a href={siteTitleHref} class="site-title sl-flex">
-	<span class:list={{ 'sr-only': 'asdasd' }}>
-		{siteTitle}
-	</span>
-	<Hello  client:load siteTitle = {siteTitle}></Hello>
-</a>
+<Hello  client:load siteTitle = {siteTitle}></Hello>
 
 <style>
 	.site-title {
