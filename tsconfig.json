@@ -1,12 +1,17 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "include": [
+    ".astro/types.d.ts",
+    "**/*"
+  ],
+  "exclude": [
+    "dist"
+  ],
   "compilerOptions": {
-    "baseUrl": ".",
     "jsx": "preserve",
+    "baseUrl": ".",
     "paths": {
-      "@astro/*": ["src/components/astro/*"],
-      "@vue/*": ["src/components/vue/*"],
-      "@/*":["src/*"]
+      "@/*": ["src/*"]
     }
   }
 }

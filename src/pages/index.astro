@@ -1,9 +1,13 @@
 ---
-import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
-import TaiChi from '../components/vue/yijing/TaiChi.vue'
+import Welcome from '../components/Welcome.astro';
+import Layout from '../layouts/Layout.astro';
+import '@/styles/globals.css'
+import { Button } from "@/components/ui/button"
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<StarlightPage frontmatter={{ title: '道',template:'splash' }}>
-  <p class="dark:text-blue-200">这是一个有自定义组件的自定义页面：</p>
-  <TaiChi />
-</StarlightPage>
+<Layout>
+	<Button>测试我的按钮</Button>
+	<Welcome />
+</Layout>
