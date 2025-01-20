@@ -1,6 +1,7 @@
 ---
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Home from '@/layouts/Home.vue';
 import '@/styles/globals.css'
 import { Button } from "@/components/ui/button"
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -8,6 +9,5 @@ import { Button } from "@/components/ui/button"
 ---
 
 <Layout>
-	<Button>测试我的按钮</Button>
-	<Welcome />
+	<Home client:load></Home>
 </Layout>
