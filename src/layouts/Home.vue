@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Activity, ArrowUpRight, CircleUser, CreditCard, DollarSign, Menu, Package2, Search, Users } from 'lucide-vue-next'
+import ToggleDark from '@/components/common/ToggleDark.vue'
 </script>
 
 <template>
@@ -113,6 +114,7 @@ import { Activity, ArrowUpRight, CircleUser, CreditCard, DollarSign, Menu, Packa
             />
           </div>
         </form>
+        <ToggleDark />
         <DropdownMenu>
           <DropdownMenuTrigger as-child>
             <Button variant="secondary" size="icon" class="rounded-full">
