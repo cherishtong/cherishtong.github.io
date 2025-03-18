@@ -1,0 +1,17 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+// 1. 为每个集合条目生成一个新路径
+export async function getStaticPaths() {
+  const posts = await getCollection('wuwei');
+  return posts.map(post => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+// 2. 对于你的模板，你可以直接从 prop 获取条目
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<Layout><h1>{post.data.title}</h1>
+    <Content /></Layout>

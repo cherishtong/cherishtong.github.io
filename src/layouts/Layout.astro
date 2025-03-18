@@ -1,13 +1,18 @@
+---
+import { ClientRouter,slide } from 'astro:transitions';
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="zh-cn">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>鱼香肉丝</title>
+		<ClientRouter />
 	</head>
-	<body>
+	<body >
 		<slot />
 	</body>
 </html>
@@ -20,3 +25,4 @@
 		height: 100%;
 	}
 </style>
+

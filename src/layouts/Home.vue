@@ -13,7 +13,7 @@ import ToggleDark from '@/components/common/ToggleDark.vue'
 
 <template>
   <div class="flex min-h-screen w-full flex-col">
-    <header class="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
+    <header class="sticky top-0 flex h-16 justify-between items-center gap-4 border-b bg-background px-4 md:px-6">
       <nav class="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
         <a
           href="#"
@@ -23,10 +23,9 @@ import ToggleDark from '@/components/common/ToggleDark.vue'
           <span class="sr-only">Acme Inc</span>
         </a>
         <a
-          href="#"
+          href="/wuwei"
           class="text-foreground transition-colors hover:text-foreground"
-        >
-          Dashboard
+        >赵无为
         </a>
         <a
           href="#"
@@ -103,7 +102,7 @@ import ToggleDark from '@/components/common/ToggleDark.vue'
           </nav>
         </SheetContent>
       </Sheet>
-      <div class="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
+      <div class="flex  items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
         <form class="ml-auto flex-1 sm:flex-initial">
           <div class="relative">
             <Search class="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
