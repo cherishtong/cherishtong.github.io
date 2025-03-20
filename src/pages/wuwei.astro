@@ -7,7 +7,7 @@ const posts = await getCollection('wuwei');
     <h1>My posts</h1>
     <ul>
       {posts.map(post => (
-        <li><a href={`/wuwei/${post.id}`}>{post.data.title}</a></li>
+        <li><a href={`/posts/${post.id}`}>{post.data.title}</a></li>
       ))}
     </ul>
 </Layout>

@@ -4,10 +4,16 @@
     "wuwei": {
       "type": "object",
       "properties": {
+        "title": {
+          "type": "string"
+        },
         "$schema": {
           "type": "string"
         }
       },
+      "required": [
+        "title"
+      ],
       "additionalProperties": false
     }
   },
