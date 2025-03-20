@@ -9,6 +9,10 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Activity, ArrowUpRight, CircleUser, CreditCard, DollarSign, Menu, Package2, Search, Users } from 'lucide-vue-next'
 import ToggleDark from '@/components/common/ToggleDark.vue'
+import TaiChi from '../assets/imgs/TaiChi1.svg'
+
+console.log(TaiChi);
+
 </script>
 
 <template>
@@ -19,7 +23,7 @@ import ToggleDark from '@/components/common/ToggleDark.vue'
           href="#"
           class="flex items-center gap-2 text-lg font-semibold md:text-base"
         >
-          <Package2 class="h-6 w-6" />
+          <img style="width: 26px;height: 26px;" :src="TaiChi.src" /> 
           <span class="sr-only">Acme Inc</span>
         </a>
         <a
