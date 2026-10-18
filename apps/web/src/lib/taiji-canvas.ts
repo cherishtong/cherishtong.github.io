@@ -88,36 +88,36 @@ export function initTaijiCanvas(canvas: HTMLCanvasElement) {
     ]);
     ctx.fill();
 
-    // 墨色 / 朱砂 / 鎏金 / 石青的“阴”半
+    // 墨色 / 朱砂的“阴”半：保持深色，让阴阳关系清楚
     ctx.fillStyle = conic(ctx, t * 0.55, [
       [0, palette.ink],
-      [0.22, palette.ink],
-      [0.44, palette.vermilion],
-      [0.62, palette.gold],
-      [0.78, palette.stoneBlue],
+      [0.28, palette.ink],
+      [0.48, palette.vermilion],
+      [0.7, palette.ink],
       [1, palette.ink],
     ]);
     ctx.fill(path);
 
-    // 两个鱼眼
+    // 两个鱼眼：上眼在阳半，用墨；下眼在阴半，用纸
     ctx.beginPath();
-    ctx.arc(50, 26.5, 5.875, 0, Math.PI * 2);
-    ctx.fillStyle = palette.paper;
-    ctx.fill();
-
-    ctx.beginPath();
-    ctx.arc(50, 73.5, 5.875, 0, Math.PI * 2);
+    ctx.arc(50, 26.5, 12.5, 0, Math.PI * 2);
     ctx.fillStyle = palette.ink;
     ctx.fill();
 
-    // 外圈流光
+    ctx.beginPath();
+    ctx.arc(50, 73.5, 12.5, 0, Math.PI * 2);
+    ctx.fillStyle = palette.paper;
+    ctx.fill();
+
+    // 外圈流光：鎏金 / 朱砂 / 石青
     ctx.beginPath();
     ctx.arc(50, 50, 47, 0, Math.PI * 2);
     ctx.lineWidth = 2.8;
     ctx.strokeStyle = conic(ctx, -t * 0.8, [
       [0, palette.gold],
-      [0.32, palette.vermilion],
-      [0.64, palette.ink],
+      [0.28, palette.vermilion],
+      [0.55, palette.stoneBlue],
+      [0.8, palette.gold],
       [1, palette.gold],
     ]);
     ctx.stroke();
