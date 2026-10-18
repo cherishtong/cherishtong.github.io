@@ -1,0 +1,23 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<canvas
+  class:list={['taiji-canvas', className]}
+  data-taiji-canvas
+  width="64"
+  height="64"
+  aria-hidden="true"
+></canvas>
+
+<script>
+  import { initTaijiCanvas } from '@/lib/taiji-canvas';
+
+  document.querySelectorAll<HTMLCanvasElement>('[data-taiji-canvas]').forEach((canvas) => {
+    initTaijiCanvas(canvas);
+  });
+</script>

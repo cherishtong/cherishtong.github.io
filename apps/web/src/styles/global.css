@@ -219,9 +219,10 @@ section[id] {
 }
 
 .brand-taiji {
+  display: block;
   flex-shrink: 0;
-  color: var(--ink);
-  font-size: 24px;
+  width: 30px;
+  height: 30px;
 }
 
 .brand-name {
@@ -229,6 +230,30 @@ section[id] {
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.15em;
+  background: linear-gradient(
+    90deg,
+    var(--ink) 0%,
+    var(--vermilion) 24%,
+    var(--gold) 48%,
+    var(--stone-blue) 72%,
+    var(--ink) 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: brand-flow 9s linear infinite;
+}
+
+@keyframes brand-flow {
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 250% 50%;
+  }
 }
 
 .brand-sub {
@@ -2069,6 +2094,11 @@ td:first-child {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .brand-name {
+    animation: none;
+    background-position: 0 0;
   }
 }
 

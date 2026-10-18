@@ -115,7 +115,8 @@ order: 3
 - 辅助色：鎏金 `#B08D57`、石青 `#2F5D62`、石绿 `#4F6B57`、琉璃黄 `#B8862B`
 - 正文：思源宋体 17px / 1.95
 - 题字与印章：Ma Shan Zheng
-- 太极图：Header logo + 首页 Hero 的浅色水印（`apps/web/src/components/site/Taiji.astro`）
+- 太极图：Header 用 TS Canvas 绘制流光渐变并旋转（`TaijiCanvas.astro`）；首页 Hero 保留浅色 SVG 水印（`Taiji.astro`）
+- 站名「赵无为」在 Header 使用主题色流光渐变文字
 - 背景：`apps/web/src/components/background/LandscapeBackdrop.astro`
   - 固定山水层：群山、长城、烽火台、六十四卦、日月、飞鸟、云雾
   - 背景自己的 CSS 变量也在组件内，换背景时整体替换即可
