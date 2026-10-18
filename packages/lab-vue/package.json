@@ -8,5 +8,8 @@
   },
   "peerDependencies": {
     "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@cherishtong/config": "workspace:*"
   }
 }

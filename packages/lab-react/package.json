@@ -11,6 +11,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@cherishtong/config": "workspace:*",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0"
   }
