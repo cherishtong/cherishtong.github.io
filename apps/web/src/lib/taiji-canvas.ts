@@ -11,6 +11,7 @@ const TAIJI_PATH = 'M50 3a47 47 0 0 1 0 94 23.5 23.5 0 0 1 0-47 23.5 23.5 0 0 0 
 
 // 经典比例：外圆半径 R，S 曲线半径 R/2，鱼眼半径 R/8。
 const EYE_RADIUS = 47 / 8;
+const RING_WIDTH = 1.6;
 
 const readPalette = (): Palette => {
   const styles = getComputedStyle(document.documentElement);
@@ -115,7 +116,7 @@ export function initTaijiCanvas(canvas: HTMLCanvasElement) {
     // 外圈流光：鎏金 / 朱砂 / 石青
     ctx.beginPath();
     ctx.arc(50, 50, 47, 0, Math.PI * 2);
-    ctx.lineWidth = 2.8;
+    ctx.lineWidth = RING_WIDTH;
     ctx.strokeStyle = conic(ctx, -t * 0.8, [
       [0, palette.gold],
       [0.28, palette.vermilion],
