@@ -1,0 +1,40 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Counter from '@/components/lab/vue/Counter.vue';
+---
+
+<BaseLayout
+  title="Vue Counter · Lab · 墨纸山河"
+  description="Vue 3.5 的 ref 计数器，使用 client:visible 按需水合。"
+>
+  <section class="section container">
+    <div class="section-head">
+      <div class="eyebrow">LAB / VUE</div>
+      <h2>Vue Counter</h2>
+      <p>
+        Vue 组件和 React 版本共用同一套主题样式，只是把状态从 <code>useState</code>
+        换成了 <code>ref</code>。
+      </p>
+    </div>
+
+    <div class="card">
+      <Counter client:visible />
+    </div>
+
+    <div class="demo-label">USAGE</div>
+    <div class="code-block">
+      <div class="code-head">
+        <span>src/pages/lab/vue/counter.astro</span>
+      </div>
+      <pre><code><span class="tok-keyword">import</span> Counter <span class="tok-keyword">from</span> <span class="tok-string">'@/components/lab/vue/Counter.vue'</span>;
+
+&lt;<span class="tok-fn">Counter</span> client:visible /&gt;</code></pre>
+    </div>
+
+    <p style="margin-top: 2rem;">
+      <a class="prose-link" href="/lab">
+        ← 回到实验室
+      </a>
+    </p>
+  </section>
+</BaseLayout>

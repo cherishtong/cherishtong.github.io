@@ -1,0 +1,64 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection(
+    'projects',
+    ({ data }) => import.meta.env.DEV || !data.draft,
+  );
+
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const demoIsExternal = project.data.demo?.startsWith('http') ?? false;
+const statusLabel = {
+  active: '进行中',
+  wip: '开发中',
+  archived: '已归档',
+}[project.data.status];
+---
+
+<BaseLayout title={`${project.data.title} · 项目 · 墨纸山河`} description={project.data.summary}>
+  <section class="section container">
+    <div class="project-hero">
+      <div class="eyebrow">项目 / PROJECT · {project.data.period ?? '2026'}</div>
+      <h1 class="project-title">{project.data.title}</h1>
+      <p class="lede">{project.data.summary}</p>
+
+      <div class="tag-row">
+        {project.data.stack.map((item) => (
+          <span class="tag">{item}</span>
+        ))}
+        <span class="tag">{statusLabel}</span>
+      </div>
+
+      <div class="actions">
+        {project.data.demo && (
+          <a
+            class="btn btn-vermilion"
+            href={project.data.demo}
+            target={demoIsExternal ? '_blank' : undefined}
+            rel={demoIsExternal ? 'noreferrer' : undefined}
+          >
+            打开演示
+          </a>
+        )}
+        {project.data.repo && (
+          <a class="btn btn-ghost" href={project.data.repo} target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+        )}
+      </div>
+    </div>
+
+    <div class="prose">
+      <Content />
+    </div>
+  </section>
+</BaseLayout>

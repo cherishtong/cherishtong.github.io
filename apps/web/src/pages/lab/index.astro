@@ -1,5 +1,89 @@
 ---
-import StubPage from '@/components/site/StubPage.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 ---
 
-<StubPage title="实验室" eyebrow="肆 / LAB" description="React、Vue 与其他前端框架的示例和对比。" />
+<BaseLayout title="实验室 · 墨纸山河" description="React、Vue 与其他前端框架的示例和对比。">
+  <section class="section container">
+    <div class="section-head">
+      <div class="eyebrow">肆 / LAB</div>
+      <h2>框架实验室</h2>
+      <p>
+        用同一套墨纸山河主题，放不同框架的交互示例。第一批先做 React 和 Vue， 后续再加
+        Svelte、Solid、Preact、Lit 和 Alpine。
+      </p>
+    </div>
+
+    <div class="card-grid">
+      <a class="card" href="/lab/react/counter/">
+        <div class="card-label">REACT 19 / CLIENT:VISIBLE</div>
+        <h3 class="card-title">React Counter</h3>
+        <p class="card-text">
+          <code>useState</code> 计数器，验证 React 组件在 Astro 里的 SSR 与按需水合。
+        </p>
+        <div class="tag-row" style="margin-top: 1rem; margin-bottom: 0;">
+          <span class="tag">react</span>
+          <span class="tag">islands</span>
+        </div>
+      </a>
+
+      <a class="card" href="/lab/vue/counter/">
+        <div class="card-label">VUE 3.5 / CLIENT:VISIBLE</div>
+        <h3 class="card-title">Vue Counter</h3>
+        <p class="card-text">
+          <code>ref</code> 计数器，和 React 版本使用同一套按钮与排版样式。
+        </p>
+        <div class="tag-row" style="margin-top: 1rem; margin-bottom: 0;">
+          <span class="tag">vue</span>
+          <span class="tag">islands</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="section-head">
+      <div class="eyebrow">HYDRATION / 水合</div>
+      <h2>什么时候加载 JS</h2>
+      <p>内容页尽量不加载框架运行时；只有 Lab 的示例按需水合。</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>指令</th>
+            <th>时机</th>
+            <th>适合</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>client:load</td>
+            <td>页面加载后立即</td>
+            <td>首屏强交互</td>
+          </tr>
+          <tr>
+            <td>client:idle</td>
+            <td>主线程空闲</td>
+            <td>次要交互</td>
+          </tr>
+          <tr>
+            <td>client:visible</td>
+            <td>进入视口</td>
+            <td>首屏以下的示例</td>
+          </tr>
+          <tr>
+            <td>client:media</td>
+            <td>匹配媒体查询</td>
+            <td>移动端专属组件</td>
+          </tr>
+          <tr>
+            <td>client:only</td>
+            <td>跳过 SSR，只在浏览器</td>
+            <td>依赖 window / canvas 的库</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</BaseLayout>

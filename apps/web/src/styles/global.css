@@ -878,6 +878,17 @@ section[id] {
   opacity: 0.75;
 }
 
+.card-ru .tag {
+  border-color: rgba(243, 237, 225, 0.28);
+  background: rgba(243, 237, 225, 0.08);
+  color: #f3ede1;
+}
+
+.card-ru .tag::before,
+.card-ru .tag::after {
+  color: rgba(243, 237, 225, 0.55);
+}
+
 /* ---------- Glass ---------- */
 
 .glass-stage {
@@ -1337,6 +1348,15 @@ section[id] {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.05em;
+  line-height: 1.9;
+}
+
+.meta-tag {
+  color: var(--stone-blue);
+}
+
+.meta-tag:hover {
+  color: var(--vermilion);
 }
 
 /* ---------- Code block ---------- */
@@ -1898,4 +1918,233 @@ td:first-child {
 
 .prose-link:hover {
   color: var(--vermilion);
+}
+
+/* ---------- Lab ---------- */
+
+.lab-demo {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+}
+
+.lab-demo-value {
+  color: var(--vermilion);
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.lab-demo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lab-demo-meta {
+  margin: 0;
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.lab-demo-meta code {
+  color: var(--vermilion);
+}
+
+/* ---------- Docs ---------- */
+
+.docs-shell {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+.docs-sidebar {
+  position: sticky;
+  top: 88px;
+  align-self: start;
+  max-height: calc(100vh - 112px);
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.docs-main {
+  min-width: 0;
+  max-width: 68ch;
+}
+
+.docs-description {
+  margin: 0 0 2rem;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.docs-toc {
+  display: none;
+}
+
+.docs-mobile-nav {
+  display: none;
+}
+
+.docs-toc a {
+  display: block;
+  padding: 0.35rem 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.docs-toc a:hover {
+  color: var(--vermilion);
+}
+
+.docs-toc a.depth-3 {
+  padding-left: 0.75rem;
+  color: var(--faint);
+  font-size: 11px;
+}
+
+.docs-index-group {
+  margin-bottom: 2.5rem;
+}
+
+.docs-index-group h3 {
+  margin: 0 0 1rem;
+  font-family: var(--font-serif);
+  font-size: 20px;
+}
+
+.docs-mobile-nav summary {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.docs-mobile-links {
+  display: grid;
+  gap: 2px;
+  margin-top: 0.5rem;
+}
+
+.docs-mobile-links a {
+  padding: 0.5rem 0.75rem;
+  border-left: 2px solid transparent;
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.docs-mobile-links a:hover {
+  color: var(--vermilion);
+  background: var(--accent-soft);
+}
+
+.docs-mobile-links a.active {
+  border-left-color: var(--gold);
+  color: var(--vermilion);
+  background: var(--accent-soft);
+}
+
+/* ---------- Projects ---------- */
+
+.project-hero {
+  max-width: 52rem;
+  margin-bottom: 2.5rem;
+}
+
+.project-hero .lede {
+  max-width: 42rem;
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.95;
+}
+
+.project-title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.project-hero .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.project-hero .tag-row {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+/* ---------- Search ---------- */
+
+.search-box {
+  max-width: 46rem;
+  --pagefind-ui-primary: var(--vermilion);
+  --pagefind-ui-text: var(--ink);
+  --pagefind-ui-background: var(--surface);
+  --pagefind-ui-border: var(--line);
+  --pagefind-ui-tag: var(--accent-soft);
+  --pagefind-ui-border-radius: var(--radius-md);
+  --pagefind-ui-font: var(--font-sans);
+}
+
+.search-box .pagefind-ui mark {
+  border-radius: 2px;
+  background: var(--accent-soft);
+  color: var(--vermilion);
+}
+
+kbd {
+  padding: 1px 5px;
+  border: 1px solid var(--line-strong);
+  border-radius: 3px;
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+}
+
+@media (min-width: 1280px) {
+  .docs-shell {
+    grid-template-columns: 200px minmax(0, 1fr) 180px;
+  }
+
+  .docs-toc {
+    position: sticky;
+    top: 88px;
+    display: block;
+    align-self: start;
+  }
+}
+
+@media (max-width: 1024px) {
+  .docs-shell {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .docs-sidebar {
+    display: none;
+  }
+
+  .docs-mobile-nav {
+    display: block;
+  }
 }

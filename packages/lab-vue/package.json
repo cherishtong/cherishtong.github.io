@@ -1,0 +1,12 @@
+{
+  "name": "@cherishtong/lab-vue",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    "./Counter": "./src/Counter.vue"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  }
+}

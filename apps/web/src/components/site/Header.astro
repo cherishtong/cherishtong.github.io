@@ -6,8 +6,8 @@ const links = [
   { href: '/docs', label: 'docs' },
   { href: '/projects', label: 'projects' },
   { href: '/lab', label: 'lab' },
+  { href: '/search', label: 'search' },
   { href: '/about', label: 'about' },
-  { href: '/styleguide', label: 'styleguide' },
 ];
 
 const isActive = (href: string) => path === href || path.startsWith(`${href}/`);
@@ -57,17 +57,15 @@ const isActive = (href: string) => path === href || path.startsWith(`${href}/`);
   </div>
 
   <nav id="mobile-nav" class="mobile-nav" data-mobile-nav aria-label="移动端导航">
-    {
-      links.map((link) => (
-        <a
-          href={link.href}
-          class:list={[{ active: isActive(link.href) }]}
-          aria-current={isActive(link.href) ? 'page' : undefined}
-        >
-          <span class="prompt">~/</span>
-          {link.label}
-        </a>
-      ))
-    }
+    {links.map((link) => (
+      <a
+        href={link.href}
+        class:list={[{ active: isActive(link.href) }]}
+        aria-current={isActive(link.href) ? 'page' : undefined}
+      >
+        <span class="prompt">~/</span>
+        {link.label}
+      </a>
+    ))}
   </nav>
 </header>

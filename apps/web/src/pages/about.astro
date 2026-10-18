@@ -1,9 +1,56 @@
 ---
-import StubPage from '@/components/site/StubPage.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 ---
 
-<StubPage
-  title="关于"
-  eyebrow="伍 / ABOUT"
-  description="关于这个站、这些工具，以及写代码之外的一点事。"
-/>
+<BaseLayout title="关于 · 墨纸山河" description="关于这个站、这些工具，以及写代码之外的一点事。">
+  <section class="section container">
+    <div class="section-head">
+      <div class="eyebrow">伍 / ABOUT</div>
+      <h2>关于</h2>
+      <p>前端开发者，喜欢折腾框架、编辑器与设计系统。</p>
+    </div>
+
+    <div class="prose">
+      <p class="lead">
+        这个站叫「墨纸山河」。名字来自两件事：一是想把页面做成一张可以长期写字的纸，
+        二是想在中国传统的山水、书法和色彩里，找一套适合屏幕的视觉语言。
+      </p>
+
+      <h2>这个站</h2>
+
+      <p>
+        内容分四块：博客放长文和复盘，文档放配置与工具说明，项目放做过的东西， Lab 放 React、Vue
+        这些框架的交互示例。背景是一幅固定的山水——群山、长城、
+        六十四卦与日月；它被抽成了一个独立组件，以后可以整套替换。
+      </p>
+
+      <p>
+        技术上用 Astro 7 做静态输出，Tailwind CSS 4 管理样式，pnpm workspace 管理
+        monorepo。数学公式在构建时用 Sätteri + KaTeX 渲染，搜索结果由 Pagefind 在构建后生成。
+      </p>
+
+      <h2>工具</h2>
+
+      <ul>
+        <li>编辑器：Neovim / VS Code</li>
+        <li>终端：Windows Terminal + PowerShell 7 / Git Bash</li>
+        <li>字体：Noto Serif SC / Noto Sans SC / JetBrains Mono</li>
+        <li>主题：墨纸山河，故宫色谱与书法</li>
+      </ul>
+
+      <blockquote>
+        「道常无为而无不为。」
+        <cite>—《道德经》第三十七章</cite>
+      </blockquote>
+
+      <h2>联系</h2>
+
+      <p>
+        GitHub：
+        <a href="https://github.com/cherishtong" target="_blank" rel="noreferrer">
+          @cherishtong
+        </a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

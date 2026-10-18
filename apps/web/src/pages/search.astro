@@ -1,0 +1,51 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const isDev = import.meta.env.DEV;
+---
+
+<BaseLayout title="搜索 · 墨纸山河" description="搜索博客、文档与项目。">
+  {!isDev && <link slot="head" rel="stylesheet" href="/pagefind/pagefind-ui.css" />}
+
+  <section class="section container" data-pagefind-ignore>
+    <div class="section-head">
+      <div class="eyebrow">检索 / SEARCH</div>
+      <h2>搜索</h2>
+      <p>
+        搜索博客、文档与项目。快捷键 <kbd>Ctrl</kbd> / <kbd>Cmd</kbd> + <kbd>K</kbd>。
+      </p>
+    </div>
+
+    {isDev ? (
+      <div class="card">
+        <div class="card-label">DEV MODE</div>
+        <h3 class="card-title">搜索索引只在构建后生成</h3>
+        <p class="card-text">
+          Pagefind 会在 <code>astro build</code> 之后索引静态 HTML。运行
+          <code>pnpm build</code> 后用 <code>pnpm preview</code> 查看搜索结果。
+        </p>
+      </div>
+    ) : (
+      <div id="search" class="search-box"></div>
+    )}
+  </section>
+
+  {!isDev && <script is:inline>
+    (() => {
+      const script = document.createElement('script');
+      script.src = '/pagefind/pagefind-ui.js';
+      script.onload = () => {
+        new PagefindUI({
+          element: '#search',
+          showSubResults: true,
+          showImages: false,
+          resetStyles: false,
+        });
+        window.setTimeout(() => {
+          document.querySelector('.pagefind-ui__search-input')?.focus();
+        }, 80);
+      };
+      document.head.appendChild(script);
+    })();
+  </script>}
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+interface DocItem {
+  id: string;
+  title: string;
+  section: string;
+  order: number;
+}
+
+interface Props {
+  docs: DocItem[];
+  currentId?: string;
+}
+
+const { docs, currentId } = Astro.props;
+
+const grouped = docs.reduce<Record<string, DocItem[]>>((groups, doc) => {
+  (groups[doc.section] ??= []).push(doc);
+  return groups;
+}, {});
+
+for (const items of Object.values(grouped)) {
+  items.sort((a, b) => a.order - b.order);
+}
+---
+
+<nav class="docs-sidebar" aria-label="文档目录">
+  {Object.entries(grouped).map(([section, items]) => (
+    <div class="sidebar-group">
+      <div class="sidebar-label">{section}</div>
+      {items.map((doc) => (
+        <a
+          href={`/docs/${doc.id}/`}
+          class:list={['sidebar-link', { active: doc.id === currentId }]}
+          aria-current={doc.id === currentId ? 'page' : undefined}
+        >
+          {doc.title}
+        </a>
+      ))}
+    </div>
+  ))}
+</nav>

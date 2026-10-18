@@ -1,7 +1,9 @@
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import vue from '@astrojs/vue';
 import { satteri } from '@astrojs/markdown-satteri';
 import { satteriKatex } from './src/lib/markdown/satteri-katex';
 import tailwindcss from '@tailwindcss/vite';
@@ -12,7 +14,7 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'ignore',
   compressHTML: true,
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx(), sitemap(), react(), vue()],
   markdown: {
     processor: satteri({
       features: {
