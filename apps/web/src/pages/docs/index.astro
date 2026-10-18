@@ -1,9 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { sortDocs } from '@/lib/docs';
 
-const docs = (await getCollection('docs', ({ data }) => import.meta.env.DEV || !data.draft)).sort(
-  (a, b) => a.data.order - b.data.order,
+const docs = sortDocs(
+  await getCollection('docs', ({ data }) => import.meta.env.DEV || !data.draft),
 );
 
 const grouped = docs.reduce<Record<string, typeof docs>>((groups, doc) => {
@@ -12,12 +13,15 @@ const grouped = docs.reduce<Record<string, typeof docs>>((groups, doc) => {
 }, {});
 ---
 
-<BaseLayout title="文档 · 墨纸山河" description="dotfiles、终端、编辑器，以及那些值得记下来的坑。">
+<BaseLayout
+  title="文档 · 赵无为"
+  description="赵无为的跨平台 dotfiles：终端、Shell、tmux、编辑器与 OpenCode。"
+>
   <section class="section container">
     <div class="section-head">
       <div class="eyebrow">贰 / DOCS</div>
-      <h2>配置与工具</h2>
-      <p>dotfiles、终端、编辑器，以及那些值得记下来的坑。</p>
+      <h2>赵无为配置文档</h2>
+      <p>赵无为的跨平台 dotfiles：终端、Shell、tmux、编辑器与 OpenCode。</p>
     </div>
 
     {Object.entries(grouped).map(([section, items]) => (

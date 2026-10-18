@@ -10,8 +10,8 @@ export async function GET(context: APIContext) {
   const site = context.site ?? new URL('https://cherishtong.github.io');
 
   return rss({
-    title: '墨纸山河',
-    description: '长文、文档、项目与前端框架实验。',
+    title: '赵无为',
+    description: '赵无为的博客：长文、文档、项目与前端框架实验。',
     site,
     items: posts.map((post) => ({
       title: post.data.title,

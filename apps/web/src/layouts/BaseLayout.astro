@@ -14,7 +14,7 @@ interface Props {
 
 const {
   title,
-  description = '墨纸山河：一个以故宫色谱、书法与山水为底色的个人网站。',
+  description = '赵无为：一个以故宫色谱、书法与山水为底色的个人网站。',
   image,
   noindex = false,
 } = Astro.props;
@@ -32,7 +32,7 @@ const ogImage = image ? new URL(image, Astro.site ?? Astro.url) : undefined;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" type="application/rss+xml" title="墨纸山河 RSS" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="赵无为 RSS" href="/rss.xml" />
     <meta name="generator" content={Astro.generator} />
     {noindex && <meta name="robots" content="noindex" />}
 
@@ -40,7 +40,7 @@ const ogImage = image ? new URL(image, Astro.site ?? Astro.url) : undefined;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:site_name" content="墨纸山河" />
+    <meta property="og:site_name" content="赵无为" />
     {ogImage && <meta property="og:image" content={ogImage} />}
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -52,7 +52,8 @@ const ogImage = image ? new URL(image, Astro.site ?? Astro.url) : undefined;
       set:html={JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebSite',
-        name: '墨纸山河',
+        name: '赵无为',
+        alternateName: '墨纸山河',
         url: (Astro.site ?? Astro.url).toString(),
         description,
         inLanguage: 'zh-CN',

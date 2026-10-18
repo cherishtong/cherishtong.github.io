@@ -1,6 +1,6 @@
 ---
-title: 墨纸山河
-summary: 这个个人站本身：Astro 7 + pnpm monorepo + 故宫色谱 + 一张可替换的山水背景。
+title: 赵无为的个人站
+summary: 赵无为的个人站本身：Astro 7 + pnpm monorepo + 故宫色谱 + 一张可替换的山水背景。
 stack: [Astro, Tailwind CSS, TypeScript, pnpm]
 repo: https://github.com/cherishtong/cherishtong.github.io
 demo: /

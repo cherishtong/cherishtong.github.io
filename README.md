@@ -1,6 +1,6 @@
-# 墨纸山河 · Cherish Tong
+# 赵无为 · 个人网站
 
-一个以故宫色谱、书法与山水为底色的个人网站。使用 Astro 7 + pnpm workspace 构建，内容以 Markdown / MDX 为主，并用 React、Vue 做框架示例。
+赵无为的个人网站，主题叫「墨纸山河」：以故宫色谱、书法与山水为底色。使用 Astro 7 + pnpm workspace 构建，内容以 Markdown / MDX 为主，并用 React、Vue 做框架示例。
 
 ## 技术栈
 
@@ -74,8 +74,8 @@ pnpm format:check   # 检查格式
 | `/blog`               | 博客列表                                   |
 | `/blog/[...slug]`     | 博客详情，支持 KaTeX、代码高亮             |
 | `/blog/tags/[tag]`    | 标签页                                     |
-| `/docs`               | 文档首页                                   |
-| `/docs/[...slug]`     | 文档详情，带侧边栏与本页目录               |
+| `/docs`               | 赵无为配置文档首页                         |
+| `/docs/[...slug]`     | 配置文档详情，带侧边栏与本页目录           |
 | `/projects`           | 项目列表                                   |
 | `/projects/[...slug]` | 项目详情                                   |
 | `/lab`                | 框架实验室                                 |
@@ -120,4 +120,4 @@ apps/web/dist/pagefind/
 
 ## 旧版本
 
-重构前的版本保留在 `legacy` tag，当前新版本在 `rebuild/astro7` 分支上完成。
+重构前的版本保留在 `legacy` tag，当前版本在 `master` 分支。

@@ -27,7 +27,7 @@ const { title, description = '', headings, currentId, docs } = Astro.props;
 const toc = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
 ---
 
-<BaseLayout title={`${title} · 文档 · 墨纸山河`} description={description || '墨纸山河文档'}>
+<BaseLayout title={`${title} · 文档 · 赵无为`} description={description || '赵无为的配置文档'}>
   <section class="section">
     <div class="docs-shell container">
       <DocsSidebar docs={docs} currentId={currentId} />

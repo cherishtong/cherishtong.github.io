@@ -17,7 +17,7 @@ const date = post.data.pubDate.toISOString().slice(0, 10);
 const canonical = new URL(`/blog/${post.id}/`, Astro.site ?? Astro.url);
 ---
 
-<BaseLayout title={`${post.data.title} · 墨纸山河`} description={post.data.description}>
+<BaseLayout title={`${post.data.title} · 赵无为`} description={post.data.description}>
   <Fragment slot="head">
     <script
       type="application/ld+json"
@@ -31,7 +31,7 @@ const canonical = new URL(`/blog/${post.id}/`, Astro.site ?? Astro.url);
         url: canonical.toString(),
         author: {
           '@type': 'Person',
-          name: 'Cherish Tong',
+          name: '赵无为',
           url: 'https://github.com/cherishtong',
         },
       })}
