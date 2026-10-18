@@ -9,6 +9,9 @@ type Palette = {
 
 const TAIJI_PATH = 'M50 3a47 47 0 0 1 0 94 23.5 23.5 0 0 1 0-47 23.5 23.5 0 0 0 0-47Z';
 
+// 经典比例：外圆半径 R，S 曲线半径 R/2，鱼眼半径 R/8。
+const EYE_RADIUS = 47 / 8;
+
 const readPalette = (): Palette => {
   const styles = getComputedStyle(document.documentElement);
   const read = (name: string, fallback: string) => styles.getPropertyValue(name).trim() || fallback;
@@ -100,12 +103,12 @@ export function initTaijiCanvas(canvas: HTMLCanvasElement) {
 
     // 两个鱼眼：上眼在阳半，用墨；下眼在阴半，用纸
     ctx.beginPath();
-    ctx.arc(50, 26.5, 12.5, 0, Math.PI * 2);
+    ctx.arc(50, 26.5, EYE_RADIUS, 0, Math.PI * 2);
     ctx.fillStyle = palette.ink;
     ctx.fill();
 
     ctx.beginPath();
-    ctx.arc(50, 73.5, 12.5, 0, Math.PI * 2);
+    ctx.arc(50, 73.5, EYE_RADIUS, 0, Math.PI * 2);
     ctx.fillStyle = palette.paper;
     ctx.fill();
 
