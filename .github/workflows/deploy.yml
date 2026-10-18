@@ -24,12 +24,15 @@ jobs:
       # 复用官方 Astro Pages action：安装、构建、上传产物都在内部完成。
       # 项目在 apps/web，但依赖和 lockfile 在仓库根目录，所以 path 用 `.`，
       # 构建命令沿用根 package.json 的 build，产物指向 apps/web/dist。
+      #
+      # 不要显式传 package-manager：官方 action 需要自动读取根目录 pnpm-lock.yaml
+      # 和 package.json 的 packageManager 字段；显式传入时它不会设置 LOCKFILE，
+      # setup-node 的缓存路径会为空。
       - name: Build and upload
         uses: withastro/action@v6
         with:
           path: .
           node-version: 24
-          package-manager: pnpm@12
           out-dir: apps/web/dist
           cache-dir: apps/web/node_modules/.astro
 
