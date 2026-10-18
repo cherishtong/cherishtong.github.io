@@ -1,0 +1,33 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+interface Props {
+  title: string;
+  eyebrow: string;
+  description: string;
+}
+
+const { title, eyebrow, description } = Astro.props;
+---
+
+<BaseLayout title={`${title} · 墨纸山河`} description={description}>
+  <section class="section container">
+    <div class="section-head">
+      <div class="eyebrow">{eyebrow}</div>
+      <h2>{title}</h2>
+      <p>{description}</p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">COMING SOON</div>
+      <h3 class="card-title">这一页正在整理</h3>
+      <p class="card-text">
+        先把骨架和主题搭好，内容随后补上。可以先去看看
+        <a class="prose-link" href="/styleguide">
+          风格指南
+        </a>
+        。
+      </p>
+    </div>
+  </section>
+</BaseLayout>

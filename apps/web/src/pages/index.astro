@@ -1,0 +1,85 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="墨纸山河 · Cherish Tong"
+  description="一个以故宫色谱、书法与山水为底色的个人网站：博客、文档、项目与框架实验室。"
+>
+  <section class="hero container">
+    <div class="hero-inscription" aria-hidden="true">
+      <span class="vertical-text">山河入卷</span>
+      <span class="seal">墨</span>
+    </div>
+
+    <div class="eyebrow">个人站 / 2026</div>
+    <h1>墨纸山河</h1>
+    <p class="subtitle">Ink &amp; Vermilion — 在纸上写代码，在山水间散步。</p>
+    <p class="lede">
+      这里放长文、文档、项目演示和前端框架实验。背景是一幅固定的山水：群山连绵，
+      长城蜿蜒，六十四卦隐于天际；内容写在宣纸与墨色之间。
+    </p>
+
+    <div class="actions">
+      <a class="btn btn-vermilion" href="/blog">
+        进入博客
+      </a>
+      <a class="btn btn-ghost" href="/projects">
+        查看项目
+      </a>
+    </div>
+
+    <div class="terminal-line">
+      <span class="prompt">~/home</span>
+      <span class="cmd">$</span>
+      ls ./sections
+      <span class="cursor"></span>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="section-head">
+      <div class="eyebrow">壹 / SECTIONS</div>
+      <h2>四个入口</h2>
+      <p>写下来的、整理过的、做出来的、正在练习的，各有一处。</p>
+    </div>
+
+    <div class="card-grid">
+      <a class="card" href="/blog">
+        <div class="card-label">01 / BLOG</div>
+        <h3 class="card-title">在纸上写字</h3>
+        <p class="card-text">长文、笔记、复盘，以及偶尔的技术随笔。</p>
+      </a>
+
+      <a class="card" href="/docs">
+        <div class="card-label">02 / DOCS</div>
+        <h3 class="card-title">配置与工具</h3>
+        <p class="card-text">dotfiles、终端、编辑器，以及那些值得记下来的坑。</p>
+      </a>
+
+      <a class="card" href="/projects">
+        <div class="card-label">03 / PROJECTS</div>
+        <h3 class="card-title">项目与演示</h3>
+        <p class="card-text">做过的、正在做的，以及一些可以点开看看的东西。</p>
+      </a>
+
+      <a class="card" href="/lab">
+        <div class="card-label">04 / LAB</div>
+        <h3 class="card-title">框架实验室</h3>
+        <p class="card-text">React、Vue 与其他前端框架的示例和对比。</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="section-head">
+      <div class="eyebrow">贰 / STYLEGUIDE</div>
+      <h2>先看设计，再看内容</h2>
+      <p>颜色、字体、按钮、卡片、导航、文章排版和表单，都放在一个页面里。</p>
+    </div>
+
+    <a class="btn btn-ghost" href="/styleguide">
+      打开风格指南
+    </a>
+  </section>
+</BaseLayout>

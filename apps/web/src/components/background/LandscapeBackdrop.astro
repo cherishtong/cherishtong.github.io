@@ -1,0 +1,256 @@
+---
+const hexagrams = Array.from({ length: 64 }, (_, index) => String.fromCodePoint(0x4dc0 + index));
+---
+
+<div class="site-backdrop" aria-hidden="true">
+  <div class="backdrop-sky"></div>
+  <div class="backdrop-sun"></div>
+
+  <div class="hexagram-field">
+    {hexagrams.map((hexagram) => (
+      <span>{hexagram}</span>
+    ))}
+  </div>
+
+  <svg
+    class="backdrop-landscape"
+    viewBox="0 0 1600 900"
+    preserveAspectRatio="xMidYMid slice"
+    aria-hidden="true"
+  >
+    <defs>
+      <linearGradient id="gold-line" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#b08d57" stop-opacity="0"></stop>
+        <stop offset="50%" stop-color="#b08d57" stop-opacity="0.6"></stop>
+        <stop offset="100%" stop-color="#b08d57" stop-opacity="0"></stop>
+      </linearGradient>
+
+      <symbol id="wall-tower" viewBox="0 0 12 18">
+        <rect x="1" y="4" width="10" height="14"></rect>
+        <rect x="1" y="1" width="2" height="3"></rect>
+        <rect x="5" y="1" width="2" height="3"></rect>
+        <rect x="9" y="1" width="2" height="3"></rect>
+      </symbol>
+    </defs>
+
+    <!-- 远山 -->
+    <path
+      class="mountain-far"
+      d="M0 500 C 120 450 190 490 270 440 C 350 390 430 470 520 425 C 610 380 690 450 780 410 C 870 370 950 435 1040 400 C 1130 365 1210 425 1300 390 C 1390 355 1470 415 1560 380 L1600 390 L1600 900 L0 900 Z"
+    />
+
+    <!-- 中景山峦 -->
+    <path
+      class="mountain-mid"
+      d="M0 590 C 110 550 200 585 300 535 C 400 485 500 555 600 515 C 700 475 800 540 900 505 C 1000 470 1100 525 1200 495 C 1300 465 1400 515 1500 485 C 1550 470 1580 480 1600 475 L1600 900 L0 900 Z"
+    />
+
+    <!-- 近景山峦 -->
+    <path
+      class="mountain-near"
+      d="M0 675 C 120 635 220 675 330 620 C 440 565 540 640 650 600 C 760 560 860 625 970 590 C 1080 555 1180 610 1290 580 C 1400 550 1500 600 1600 570 L1600 900 L0 900 Z"
+    />
+
+    <!-- 长城 -->
+    <path
+      class="great-wall"
+      d="M 60 605 C 170 565 255 590 345 548 C 435 506 520 550 610 522 C 700 494 785 530 875 505 C 965 480 1050 515 1140 495 C 1230 475 1315 505 1405 488 C 1470 475 1520 488 1570 478"
+    />
+    <path
+      class="great-wall-gold"
+      d="M 60 605 C 170 565 255 590 345 548 C 435 506 520 550 610 522 C 700 494 785 530 875 505 C 965 480 1050 515 1140 495 C 1230 475 1315 505 1405 488 C 1470 475 1520 488 1570 478"
+    />
+
+    <use class="wall-tower" href="#wall-tower" x="160" y="562" width="12" height="18"></use>
+    <use class="wall-tower" href="#wall-tower" x="330" y="532" width="12" height="18"></use>
+    <use class="wall-tower" href="#wall-tower" x="500" y="517" width="12" height="18"></use>
+    <use class="wall-tower" href="#wall-tower" x="670" y="487" width="12" height="18"></use>
+    <use class="wall-tower" href="#wall-tower" x="840" y="472" width="12" height="18"></use>
+    <use class="wall-tower" href="#wall-tower" x="1010" y="472" width="12" height="18"></use>
+    <use class="wall-tower" href="#wall-tower" x="1180" y="460" width="12" height="18"></use>
+    <use class="wall-tower" href="#wall-tower" x="1350" y="462" width="12" height="18"></use>
+    <use class="wall-tower" href="#wall-tower" x="1500" y="454" width="12" height="18"></use>
+
+    <!-- 前景山影 -->
+    <path
+      class="mountain-fore"
+      d="M0 790 C 140 750 250 795 380 748 C 510 701 620 775 750 735 C 880 695 990 765 1120 735 C 1250 705 1360 760 1480 735 C 1540 722 1575 730 1600 722 L1600 900 L0 900 Z"
+    />
+
+    <!-- 飞鸟 -->
+    <g class="birds">
+      <path d="M 1040 205 q 8 -8 16 0 q 8 -8 16 0"></path>
+      <path d="M 1100 235 q 6 -6 12 0 q 6 -6 12 0"></path>
+      <path d="M 980 255 q 5 -5 10 0 q 5 -5 10 0"></path>
+      <path d="M 1150 195 q 4 -4 8 0 q 4 -4 8 0"></path>
+    </g>
+  </svg>
+
+  <div class="backdrop-mist"></div>
+</div>
+
+<style is:global>
+  /* 固定山水背景：群山、长城、六十四卦、日月 */
+  :root {
+    --mountain-far: #7e9188;
+    --mountain-mid: #4f6b57;
+    --mountain-near: #2f5d62;
+    --mountain-fore: #211e1a;
+    --wall: #211e1a;
+    --mist: #f3ede1;
+  }
+
+  .dark {
+    --mountain-far: #344b47;
+    --mountain-mid: #2a403b;
+    --mountain-near: #203432;
+    --mountain-fore: #0f0d0b;
+    --wall: #c6a15b;
+    --mist: #14110e;
+  }
+
+  .site-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .backdrop-sky {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #f7f1e5 0%, #f0e4d0 34%, #e3d2b8 62%, #c9b79d 100%);
+  }
+
+  .dark .backdrop-sky {
+    background: linear-gradient(180deg, #0f0d0b 0%, #1b1713 38%, #1f2421 68%, #0f0d0b 100%);
+  }
+
+  .backdrop-sun {
+    position: absolute;
+    top: 10%;
+    right: 19%;
+    width: clamp(8rem, 16vw, 15rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(200, 160, 90, 0.88) 0 11%,
+      rgba(200, 160, 90, 0.5) 17%,
+      rgba(200, 160, 90, 0.16) 42%,
+      transparent 70%
+    );
+    filter: blur(1px);
+  }
+
+  .dark .backdrop-sun {
+    background: radial-gradient(
+      circle,
+      rgba(237, 230, 216, 0.92) 0 11%,
+      rgba(237, 230, 216, 0.5) 17%,
+      rgba(237, 230, 216, 0.12) 42%,
+      transparent 70%
+    );
+    box-shadow: 0 0 100px rgba(198, 161, 91, 0.16);
+  }
+
+  .hexagram-field {
+    position: absolute;
+    top: 2.5%;
+    right: 9%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0.35rem 0.9rem;
+    width: min(30rem, 38vw);
+    color: var(--ink);
+    font-family: 'Segoe UI Symbol', 'Noto Sans Symbols 2', var(--font-serif);
+    font-size: clamp(12px, 1.2vw, 18px);
+    line-height: 1;
+    opacity: 0.075;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 72%);
+    mask-image: radial-gradient(ellipse at center, #000 20%, transparent 72%);
+  }
+
+  .dark .hexagram-field {
+    color: var(--gold);
+    opacity: 0.15;
+  }
+
+  .backdrop-landscape {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .mountain-far {
+    fill: var(--mountain-far);
+    opacity: 0.22;
+  }
+
+  .mountain-mid {
+    fill: var(--mountain-mid);
+    opacity: 0.28;
+  }
+
+  .mountain-near {
+    fill: var(--mountain-near);
+    opacity: 0.32;
+  }
+
+  .mountain-fore {
+    fill: var(--mountain-fore);
+    opacity: 0.16;
+  }
+
+  .great-wall {
+    fill: none;
+    stroke: var(--wall);
+    stroke-width: 3;
+    stroke-linecap: round;
+    opacity: 0.55;
+  }
+
+  .great-wall-gold {
+    fill: none;
+    stroke: url(#gold-line);
+    stroke-width: 0.9;
+    stroke-linecap: round;
+    opacity: 0.55;
+    transform: translateY(2px);
+  }
+
+  .wall-tower {
+    fill: var(--wall);
+    opacity: 0.6;
+  }
+
+  .birds {
+    fill: none;
+    stroke: var(--ink);
+    stroke-width: 1.1;
+    stroke-linecap: round;
+    opacity: 0.22;
+  }
+
+  .backdrop-mist {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 58%;
+    background:
+      radial-gradient(
+        ellipse at 18% 62%,
+        color-mix(in srgb, var(--mist) 62%, transparent),
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse at 78% 48%,
+        color-mix(in srgb, var(--mist) 52%, transparent),
+        transparent 58%
+      );
+    filter: blur(18px);
+  }
+</style>

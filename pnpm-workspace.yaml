@@ -1,0 +1,13 @@
+packages:
+  - apps/*
+  - packages/*
+
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
+
+catalog:
+  astro: ^7.4.0
+  tailwindcss: ^4.3.3
+  '@tailwindcss/vite': ^4.3.3
+  typescript: ^6.0.0

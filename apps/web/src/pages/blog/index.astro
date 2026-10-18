@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const posts = (await getCollection('blog', ({ data }) => import.meta.env.DEV || !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<BaseLayout title="博客 · 墨纸山河" description="长文、笔记、复盘，以及偶尔的技术随笔。">
+  <section class="section container">
+    <div class="section-head">
+      <div class="eyebrow">壹 / BLOG</div>
+      <h2>在纸上写字</h2>
+      <p>长文、笔记、复盘，以及偶尔的技术随笔。</p>
+    </div>
+
+    {posts.length === 0 ? (
+      <p class="card-text">还没有文章。</p>
+    ) : (
+      <div class="card-grid">
+        {posts.map((post) => (
+          <a class="card" href={`/blog/${post.id}`}>
+            <div class="card-label">{post.data.pubDate.toISOString().slice(0, 10)}</div>
+            <h3 class="card-title">{post.data.title}</h3>
+            <p class="card-text">{post.data.description}</p>
+            {post.data.tags.length > 0 && (
+              <div class="tag-row" style="margin-top: 1rem; margin-bottom: 0;">
+                {post.data.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            )}
+          </a>
+        ))}
+      </div>
+    )}
+  </section>
+</BaseLayout>

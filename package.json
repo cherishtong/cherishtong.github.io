@@ -1,37 +1,22 @@
 {
-  "name": "helpless-hubble",
+  "name": "cherishtong.github.io",
+  "private": true,
   "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+  "version": "0.0.0",
+  "packageManager": "pnpm@12.14.0",
+  "engines": {
+    "node": ">=22.22.0"
   },
-  "dependencies": {
-    "@astrojs/tailwind": "^5.1.4",
-    "@astrojs/vue": "^5.0.5",
-    "@vueuse/core": "^12.4.0",
-    "astro": "^5.1.7",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "lucide-vue-next": "^0.473.0",
-    "radix-vue": "^1.9.12",
-    "tailwind-merge": "^2.6.0",
-    "tailwindcss": "^3.4.17",
-    "tailwindcss-animate": "^1.0.7",
-    "vue": "^3.5.13"
+  "scripts": {
+    "dev": "pnpm --filter @cherishtong/web dev",
+    "build": "pnpm --filter @cherishtong/web build",
+    "preview": "pnpm --filter @cherishtong/web preview",
+    "check": "pnpm --filter @cherishtong/web check",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
-    "@iconify-json/radix-icons": "^1.2.2",
-    "@iconify/vue": "^4.3.0",
-    "typescript": "^5.7.3"
-  },
-  "pnpm": {
-    "ignoredBuiltDependencies": [
-      "esbuild",
-      "sharp",
-      "vue-demi"
-    ]
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.1"
   }
 }
