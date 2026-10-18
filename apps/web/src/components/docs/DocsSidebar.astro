@@ -2,7 +2,8 @@
 interface DocItem {
   id: string;
   title: string;
-  section: string;
+  category: string;
+  group: string;
   order: number;
 }
 
@@ -13,29 +14,48 @@ interface Props {
 
 const { docs, currentId } = Astro.props;
 
-const grouped = docs.reduce<Record<string, DocItem[]>>((groups, doc) => {
-  (groups[doc.section] ??= []).push(doc);
-  return groups;
-}, {});
+const categories = new Map<string, Map<string, DocItem[]>>();
 
-for (const items of Object.values(grouped)) {
-  items.sort((a, b) => a.order - b.order);
+for (const doc of docs) {
+  const groups = categories.get(doc.category) ?? new Map<string, DocItem[]>();
+  categories.set(doc.category, groups);
+
+  const group = doc.group || '文档';
+  const items = groups.get(group) ?? [];
+  items.push(doc);
+  groups.set(group, items);
+}
+
+for (const groups of categories.values()) {
+  for (const items of groups.values()) {
+    items.sort((a, b) => a.order - b.order);
+  }
 }
 ---
 
-<nav class="docs-sidebar" aria-label="文档目录">
-  {Object.entries(grouped).map(([section, items]) => (
-    <div class="sidebar-group">
-      <div class="sidebar-label">{section}</div>
-      {items.map((doc) => (
-        <a
-          href={`/docs/${doc.id}/`}
-          class:list={['sidebar-link', { active: doc.id === currentId }]}
-          aria-current={doc.id === currentId ? 'page' : undefined}
-        >
-          {doc.title}
-        </a>
+<nav id="docs-sidebar" class="docs-sidebar" data-docs-sidebar aria-label="文档目录">
+  <button class="docs-sidebar-close" data-docs-sidebar-close type="button" aria-label="关闭目录">
+    关闭 ×
+  </button>
+
+  {[...categories.entries()].map(([category, groups]) => (
+    <details class="docs-category" open>
+      <summary>{category}</summary>
+
+      {[...groups.entries()].map(([group, items]) => (
+        <div class="sidebar-group">
+          {group && <div class="sidebar-label">{group}</div>}
+          {items.map((doc) => (
+            <a
+              href={`/docs/${doc.id}/`}
+              class:list={['sidebar-link', { active: doc.id === currentId }]}
+              aria-current={doc.id === currentId ? 'page' : undefined}
+            >
+              {doc.title}
+            </a>
+          ))}
+        </div>
       ))}
-    </div>
+    </details>
   ))}
 </nav>

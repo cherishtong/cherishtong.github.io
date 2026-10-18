@@ -5,7 +5,8 @@ import DocsSidebar from '@/components/docs/DocsSidebar.astro';
 interface DocItem {
   id: string;
   title: string;
-  section: string;
+  category: string;
+  group: string;
   order: number;
 }
 
@@ -29,41 +30,124 @@ const toc = headings.filter((heading) => heading.depth === 2 || heading.depth ==
 
 <BaseLayout title={`${title} · 文档 · 赵无为`} description={description || '赵无为的配置文档'}>
   <section class="section">
-    <div class="docs-shell container">
-      <DocsSidebar docs={docs} currentId={currentId} />
+    <div class="container">
+      <div class="docs-shell" data-docs-shell>
+        <DocsSidebar docs={docs} currentId={currentId} />
+        <div class="docs-sidebar-backdrop" data-docs-sidebar-backdrop></div>
 
-      <div class="docs-main">
-        <details class="docs-mobile-nav">
-          <summary>文档目录</summary>
-          <div class="docs-mobile-links">
-            {docs.map((doc) => (
-              <a
-                href={`/docs/${doc.id}/`}
-                class:list={[{ active: doc.id === currentId }]}
-                aria-current={doc.id === currentId ? 'page' : undefined}
-              >
-                {doc.title}
-              </a>
-            ))}
+        <div class="docs-main">
+          <div class="docs-toolbar">
+            <button
+              class="docs-sidebar-toggle"
+              data-docs-sidebar-toggle
+              type="button"
+              aria-expanded="true"
+              aria-controls="docs-sidebar"
+            >
+              <span aria-hidden="true">☰</span>
+              <span data-docs-sidebar-label>收起</span>
+            </button>
+            <span class="docs-toolbar-path">~/docs/{currentId}</span>
           </div>
-        </details>
 
-        <article class="prose">
-          <div class="eyebrow">文档 / DOCS</div>
-          <h1>{title}</h1>
-          {description && <p class="docs-description">{description}</p>}
-          <slot />
-        </article>
+          <article class="prose">
+            <div class="eyebrow">文档 / DOCS</div>
+            <h1>{title}</h1>
+            {description && <p class="docs-description">{description}</p>}
+            <slot />
+          </article>
+        </div>
+
+        <aside class="docs-toc" aria-label="本页目录">
+          <div class="sidebar-label">本页目录</div>
+          {toc.map((heading) => (
+            <a href={`#${heading.slug}`} class:list={[`depth-${heading.depth}`]}>
+              {heading.text}
+            </a>
+          ))}
+        </aside>
       </div>
-
-      <aside class="docs-toc" aria-label="本页目录">
-        <div class="sidebar-label">本页目录</div>
-        {toc.map((heading) => (
-          <a href={`#${heading.slug}`} class:list={[`depth-${heading.depth}`]}>
-            {heading.text}
-          </a>
-        ))}
-      </aside>
     </div>
   </section>
+
+  <script is:inline>
+    (() => {
+      const shell = document.querySelector('[data-docs-shell]');
+      const toggle = document.querySelector('[data-docs-sidebar-toggle]');
+      const closeButton = document.querySelector('[data-docs-sidebar-close]');
+      const backdrop = document.querySelector('[data-docs-sidebar-backdrop]');
+      const sidebar = document.querySelector('[data-docs-sidebar]');
+      const label = document.querySelector('[data-docs-sidebar-label]');
+
+      if (!shell || !toggle) return;
+
+      const mobileQuery = window.matchMedia('(max-width: 1024px)');
+      const isMobile = () => mobileQuery.matches;
+
+      const setLabel = (open) => {
+        if (label) label.textContent = open ? '收起' : '目录';
+      };
+
+      const setDesktop = (open) => {
+        shell.classList.toggle('is-sidebar-closed', !open);
+        toggle.setAttribute('aria-expanded', String(open));
+        setLabel(open);
+        try {
+          localStorage.setItem('docs-sidebar', open ? 'open' : 'closed');
+        } catch {
+          // ignore
+        }
+      };
+
+      const setMobile = (open) => {
+        shell.classList.toggle('is-sidebar-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        setLabel(open);
+      };
+
+      const sync = () => {
+        if (isMobile()) {
+          shell.classList.remove('is-sidebar-closed');
+          shell.classList.remove('is-sidebar-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          setLabel(false);
+        } else {
+          shell.classList.remove('is-sidebar-open');
+          let saved = 'open';
+          try {
+            saved = localStorage.getItem('docs-sidebar') ?? 'open';
+          } catch {
+            // ignore
+          }
+          setDesktop(saved !== 'closed');
+        }
+      };
+
+      toggle.addEventListener('click', () => {
+        if (isMobile()) {
+          setMobile(!shell.classList.contains('is-sidebar-open'));
+        } else {
+          setDesktop(shell.classList.contains('is-sidebar-closed'));
+        }
+      });
+
+      closeButton?.addEventListener('click', () => setMobile(false));
+      backdrop?.addEventListener('click', () => setMobile(false));
+
+      sidebar?.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (isMobile()) setMobile(false);
+        });
+      });
+
+      window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && shell.classList.contains('is-sidebar-open')) {
+          setMobile(false);
+        }
+      });
+
+      mobileQuery.addEventListener('change', sync);
+      sync();
+    })();
+  </script>
 </BaseLayout>

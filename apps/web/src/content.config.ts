@@ -22,7 +22,8 @@ const docs = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
-    section: z.string().default('指南'),
+    category: z.string().default('文档'),
+    group: z.string().default(''),
     order: z.number().default(99),
     updatedDate: z.coerce.date().optional(),
     draft: z.boolean().default(false),

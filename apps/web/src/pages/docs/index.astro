@@ -7,8 +7,8 @@ const docs = sortDocs(
   await getCollection('docs', ({ data }) => import.meta.env.DEV || !data.draft),
 );
 
-const grouped = docs.reduce<Record<string, typeof docs>>((groups, doc) => {
-  (groups[doc.data.section] ??= []).push(doc);
+const categories = docs.reduce<Record<string, typeof docs>>((groups, doc) => {
+  (groups[doc.data.category] ??= []).push(doc);
   return groups;
 }, {});
 ---
@@ -21,16 +21,21 @@ const grouped = docs.reduce<Record<string, typeof docs>>((groups, doc) => {
     <div class="section-head">
       <div class="eyebrow">贰 / DOCS</div>
       <h2>赵无为配置文档</h2>
-      <p>赵无为的跨平台 dotfiles：终端、Shell、tmux、编辑器与 OpenCode。</p>
+      <p>
+        跨平台 dotfiles：终端、Shell、tmux、编辑器与
+        OpenCode。配置只是文档的一部分，之后还会有前端笔记与工具链。
+      </p>
     </div>
 
-    {Object.entries(grouped).map(([section, items]) => (
+    {Object.entries(categories).map(([category, items]) => (
       <div class="docs-index-group">
-        <h3>{section}</h3>
+        <h3>{category}</h3>
         <div class="card-grid">
           {items.map((doc) => (
             <a class="card" href={`/docs/${doc.id}/`}>
-              <div class="card-label">DOC / {String(doc.data.order).padStart(2, '0')}</div>
+              <div class="card-label">
+                {doc.data.group || 'DOC'} / {String(doc.data.order).padStart(2, '0')}
+              </div>
               <h3 class="card-title">{doc.data.title}</h3>
               {doc.data.description && <p class="card-text">{doc.data.description}</p>}
             </a>

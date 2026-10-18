@@ -1,7 +1,8 @@
 ---
 title: tmux
 description: 跨平台 tmux：真彩色、鼠标、扩展键、fish 默认 shell 与 Matrix Green 状态栏。
-section: 终端
+category: 赵无为配置
+group: 终端
 order: 4
 updatedDate: 2026-10-19
 ---

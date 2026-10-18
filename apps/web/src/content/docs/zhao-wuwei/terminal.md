@@ -1,7 +1,8 @@
 ---
 title: 终端：Alacritty 与 mintty
 description: Linux / macOS 用 Alacritty，Windows 用 mintty；两套终端共用 Matrix Green 主题与 Cascadia Mono。
-section: 终端
+category: 赵无为配置
+group: 终端
 order: 2
 updatedDate: 2026-10-19
 ---

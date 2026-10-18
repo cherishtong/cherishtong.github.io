@@ -1,7 +1,8 @@
 ---
 title: VS Code
 description: Vitesse Black 主题、Cascadia Mono 字体、fish 默认终端，以及 dotfiles 与 Settings Sync 的取舍。
-section: 编辑器
+category: 赵无为配置
+group: 编辑器
 order: 5
 updatedDate: 2026-10-19
 ---
