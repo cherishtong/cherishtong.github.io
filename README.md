@@ -74,8 +74,8 @@ pnpm format:check   # 检查格式
 | `/blog`               | 博客列表                                   |
 | `/blog/[...slug]`     | 博客详情，支持 KaTeX、代码高亮             |
 | `/blog/tags/[tag]`    | 标签页                                     |
-| `/docs`               | 赵无为配置文档首页                         |
-| `/docs/[...slug]`     | 配置文档详情，带侧边栏与本页目录           |
+| `/docs`               | 文档首页：分类 + 可收起左侧菜单            |
+| `/docs/[...slug]`     | 文档详情，带分类侧边栏与本页目录           |
 | `/projects`           | 项目列表                                   |
 | `/projects/[...slug]` | 项目详情                                   |
 | `/lab`                | 框架实验室                                 |
@@ -86,6 +86,23 @@ pnpm format:check   # 检查格式
 | `/styleguide`         | 风格指南：颜色、字体、组件、文章排版、表单 |
 | `/rss.xml`            | RSS                                        |
 | `/404`                | 404 页面                                   |
+
+## 文档分类
+
+文档按 `category` → `group` → 文档三层组织：
+
+```yaml
+---
+title: Shell 配置
+category: 个人全局配置
+group: Shell
+order: 3
+---
+```
+
+- `/docs` 左侧菜单按分类展示，可以整体收起，也可以折叠每个分类
+- 分类顺序在 `apps/web/src/lib/docs.ts` 的 `DOC_CATEGORY_ORDER` 中调整
+- 目前只有「个人全局配置」；后续可以加「我的学习」「软件」「兴趣」等分类
 
 ## 主题
 

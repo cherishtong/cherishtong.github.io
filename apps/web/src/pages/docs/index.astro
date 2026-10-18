@@ -1,47 +1,57 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '@/layouts/BaseLayout.astro';
+import DocsLayout from '@/layouts/DocsLayout.astro';
 import { sortDocs } from '@/lib/docs';
 
 const docs = sortDocs(
   await getCollection('docs', ({ data }) => import.meta.env.DEV || !data.draft),
 );
 
-const categories = docs.reduce<Record<string, typeof docs>>((groups, doc) => {
-  (groups[doc.data.category] ??= []).push(doc);
-  return groups;
-}, {});
+const docItems = docs.map((doc) => ({
+  id: doc.id,
+  title: doc.data.title,
+  category: doc.data.category,
+  group: doc.data.group,
+  order: doc.data.order,
+}));
+
+const categories = new Map<string, { count: number; firstId: string; description?: string }>();
+
+for (const doc of docs) {
+  const existing = categories.get(doc.data.category);
+  if (existing) {
+    existing.count += 1;
+  } else {
+    categories.set(doc.data.category, {
+      count: 1,
+      firstId: doc.id,
+      description: doc.data.description,
+    });
+  }
+}
 ---
 
-<BaseLayout
-  title="文档 · 赵无为"
-  description="赵无为的跨平台 dotfiles：终端、Shell、tmux、编辑器与 OpenCode。"
+<DocsLayout
+  title="文档"
+  description="个人全局配置、学习、软件与兴趣。左侧菜单可以收起，每个分类也可以展开或折叠。"
+  headings={[]}
+  currentId=""
+  docs={docItems}
 >
-  <section class="section container">
-    <div class="section-head">
-      <div class="eyebrow">贰 / DOCS</div>
-      <h2>赵无为配置文档</h2>
-      <p>
-        跨平台 dotfiles：终端、Shell、tmux、编辑器与
-        OpenCode。配置只是文档的一部分，之后还会有前端笔记与工具链。
-      </p>
-    </div>
+  <div class="docs-home">
+    <p>
+      这里放长期维护的文档。目前先整理个人全局配置，之后会加入学习、软件、兴趣等分类。
+      左侧菜单可以整体收起，也可以把每个分类折叠起来。
+    </p>
 
-    {Object.entries(categories).map(([category, items]) => (
-      <div class="docs-index-group">
-        <h3>{category}</h3>
-        <div class="card-grid">
-          {items.map((doc) => (
-            <a class="card" href={`/docs/${doc.id}/`}>
-              <div class="card-label">
-                {doc.data.group || 'DOC'} / {String(doc.data.order).padStart(2, '0')}
-              </div>
-              <h3 class="card-title">{doc.data.title}</h3>
-              {doc.data.description && <p class="card-text">{doc.data.description}</p>}
-            </a>
-          ))}
-        </div>
-      </div>
-    ))}
-  </section>
-</BaseLayout>
+    <div class="docs-home-grid">
+      {[...categories.entries()].map(([category, meta]) => (
+        <a class="card" href={`/docs/${meta.firstId}/`}>
+          <div class="card-label">{meta.count} 篇文档</div>
+          <div class="card-title">{category}</div>
+          <div class="card-text">{meta.description ?? '这个分类正在整理。'}</div>
+        </a>
+      ))}
+    </div>
+  </div>
+</DocsLayout>

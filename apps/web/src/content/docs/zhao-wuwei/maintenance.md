@@ -1,7 +1,7 @@
 ---
 title: 安装、同步与排障
 description: 修改 dotfiles 的工作流、各平台安装命令、校验方式与安全约定。
-category: 赵无为配置
+category: 个人全局配置
 group: 维护
 order: 7
 updatedDate: 2026-10-19

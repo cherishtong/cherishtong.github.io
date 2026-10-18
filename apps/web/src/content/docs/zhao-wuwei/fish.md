@@ -1,7 +1,7 @@
 ---
 title: fish Shell
 description: 跨平台的 fish 4.x 配置：轻量提示符、常用缩写、Matrix Green / Gruvbox Light 主题。
-category: 赵无为配置
+category: 个人全局配置
 group: Shell
 order: 3
 updatedDate: 2026-10-19

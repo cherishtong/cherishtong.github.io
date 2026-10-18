@@ -1,7 +1,7 @@
 ---
 title: OpenCode
 description: OpenCode CLI 的 matrix 主题、键盘滚动、session sidebar 与配置同步范围。
-category: 赵无为配置
+category: 个人全局配置
 group: 编辑器
 order: 6
 updatedDate: 2026-10-19

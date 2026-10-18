@@ -26,12 +26,15 @@ interface Props {
 
 const { title, description = '', headings, currentId, docs } = Astro.props;
 const toc = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
+const hasToc = toc.length > 0;
+const docsPath = currentId ? `~/docs/${currentId}` : '~/docs';
+const pageTitle = currentId ? `${title} · 文档 · 赵无为` : '文档 · 赵无为';
 ---
 
-<BaseLayout title={`${title} · 文档 · 赵无为`} description={description || '赵无为的配置文档'}>
+<BaseLayout title={pageTitle} description={description || '赵无为的文档'}>
   <section class="section">
     <div class="container">
-      <div class="docs-shell" data-docs-shell>
+      <div class:list={['docs-shell', { 'no-toc': !hasToc }]} data-docs-shell>
         <DocsSidebar docs={docs} currentId={currentId} />
         <div class="docs-sidebar-backdrop" data-docs-sidebar-backdrop></div>
 
@@ -47,7 +50,7 @@ const toc = headings.filter((heading) => heading.depth === 2 || heading.depth ==
               <span aria-hidden="true">☰</span>
               <span data-docs-sidebar-label>收起</span>
             </button>
-            <span class="docs-toolbar-path">~/docs/{currentId}</span>
+            <span class="docs-toolbar-path">{docsPath}</span>
           </div>
 
           <article class="prose">
@@ -58,14 +61,16 @@ const toc = headings.filter((heading) => heading.depth === 2 || heading.depth ==
           </article>
         </div>
 
-        <aside class="docs-toc" aria-label="本页目录">
-          <div class="sidebar-label">本页目录</div>
-          {toc.map((heading) => (
-            <a href={`#${heading.slug}`} class:list={[`depth-${heading.depth}`]}>
-              {heading.text}
-            </a>
-          ))}
-        </aside>
+        {hasToc && (
+          <aside class="docs-toc" aria-label="本页目录">
+            <div class="sidebar-label">本页目录</div>
+            {toc.map((heading) => (
+              <a href={`#${heading.slug}`} class:list={[`depth-${heading.depth}`]}>
+                {heading.text}
+              </a>
+            ))}
+          </aside>
+        )}
       </div>
     </div>
   </section>

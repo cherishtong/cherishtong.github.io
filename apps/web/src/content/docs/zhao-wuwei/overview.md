@@ -1,7 +1,7 @@
 ---
 title: 配置总览
 description: 赵无为的跨平台 dotfiles：一套配置，Windows、Linux、macOS 共用。
-category: 赵无为配置
+category: 个人全局配置
 group: 总览
 order: 1
 updatedDate: 2026-10-19

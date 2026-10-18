@@ -20,7 +20,7 @@ for (const doc of docs) {
   const groups = categories.get(doc.category) ?? new Map<string, DocItem[]>();
   categories.set(doc.category, groups);
 
-  const group = doc.group || '文档';
+  const group = doc.group || '';
   const items = groups.get(group) ?? [];
   items.push(doc);
   groups.set(group, items);
@@ -38,24 +38,29 @@ for (const groups of categories.values()) {
     关闭 ×
   </button>
 
-  {[...categories.entries()].map(([category, groups]) => (
-    <details class="docs-category" open>
-      <summary>{category}</summary>
+  {[...categories.entries()].map(([category, groups]) => {
+    const categoryDocs = [...groups.values()].flat();
+    const isCurrent = categoryDocs.some((doc) => doc.id === currentId);
 
-      {[...groups.entries()].map(([group, items]) => (
-        <div class="sidebar-group">
-          {group && <div class="sidebar-label">{group}</div>}
-          {items.map((doc) => (
-            <a
-              href={`/docs/${doc.id}/`}
-              class:list={['sidebar-link', { active: doc.id === currentId }]}
-              aria-current={doc.id === currentId ? 'page' : undefined}
-            >
-              {doc.title}
-            </a>
-          ))}
-        </div>
-      ))}
-    </details>
-  ))}
+    return (
+      <details class="docs-category" open={isCurrent}>
+        <summary>{category}</summary>
+
+        {[...groups.entries()].map(([group, items]) => (
+          <div class="sidebar-group">
+            {group && <div class="sidebar-label">{group}</div>}
+            {items.map((doc) => (
+              <a
+                href={`/docs/${doc.id}/`}
+                class:list={['sidebar-link', { active: doc.id === currentId }]}
+                aria-current={doc.id === currentId ? 'page' : undefined}
+              >
+                {doc.title}
+              </a>
+            ))}
+          </div>
+        ))}
+      </details>
+    );
+  })}
 </nav>
