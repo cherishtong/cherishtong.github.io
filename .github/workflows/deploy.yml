@@ -21,28 +21,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6
-
-      - name: Setup Node
-        uses: actions/setup-node@v7
+      # 复用官方 Astro Pages action：安装、构建、上传产物都在内部完成。
+      # 项目在 apps/web，但依赖和 lockfile 在仓库根目录，所以 path 用 `.`，
+      # 构建命令沿用根 package.json 的 build，产物指向 apps/web/dist。
+      - name: Build and upload
+        uses: withastro/action@v6
         with:
+          path: .
           node-version: 24
-          cache: pnpm
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v6
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build site
-        run: pnpm --filter @cherishtong/web build
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: apps/web/dist
+          package-manager: pnpm@12
+          out-dir: apps/web/dist
+          cache-dir: apps/web/node_modules/.astro
 
   deploy:
     needs: build
