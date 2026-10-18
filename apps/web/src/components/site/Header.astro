@@ -38,6 +38,36 @@ const isActive = (href: string) => path === href || path.startsWith(`${href}/`);
         <span class="toggle-dot"></span>
         <span data-theme-label>DARK</span>
       </button>
+
+      <button
+        class="menu-toggle"
+        data-menu-toggle
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="打开菜单"
+      >
+        <span class="menu-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
+        <span>MENU</span>
+      </button>
     </div>
   </div>
+
+  <nav id="mobile-nav" class="mobile-nav" data-mobile-nav aria-label="移动端导航">
+    {
+      links.map((link) => (
+        <a
+          href={link.href}
+          class:list={[{ active: isActive(link.href) }]}
+          aria-current={isActive(link.href) ? 'page' : undefined}
+        >
+          <span class="prompt">~/</span>
+          {link.label}
+        </a>
+      ))
+    }
+  </nav>
 </header>

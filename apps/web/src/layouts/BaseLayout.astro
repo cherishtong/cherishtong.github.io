@@ -108,6 +108,42 @@ const ogImage = image ? new URL(image, Astro.site ?? Astro.url) : undefined;
 
         sync();
       })();
+
+      (() => {
+        const menuToggle = document.querySelector('[data-menu-toggle]');
+        const mobileNav = document.querySelector('[data-mobile-nav]');
+
+        const closeMenu = () => {
+          mobileNav?.classList.remove('open');
+          menuToggle?.setAttribute('aria-expanded', 'false');
+          menuToggle?.setAttribute('aria-label', '打开菜单');
+        };
+
+        menuToggle?.addEventListener('click', () => {
+          const open = mobileNav?.classList.toggle('open') ?? false;
+          menuToggle.setAttribute('aria-expanded', String(open));
+          menuToggle.setAttribute('aria-label', open ? '关闭菜单' : '打开菜单');
+        });
+
+        mobileNav?.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('click', (event) => {
+          if (!mobileNav?.classList.contains('open')) return;
+          const target = event.target;
+          if (mobileNav.contains(target) || menuToggle?.contains(target)) return;
+          closeMenu();
+        });
+
+        window.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') closeMenu();
+        });
+
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 1024) closeMenu();
+        });
+      })();
     </script>
   </body>
 </html>
