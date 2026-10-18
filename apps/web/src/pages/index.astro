@@ -1,23 +1,26 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Taiji from '@/components/site/Taiji.astro';
 ---
 
 <BaseLayout
   title="赵无为 · 个人网站"
-  description="赵无为的个人网站：博客、文档、项目与框架实验室，以故宫色谱、书法与山水为底色。"
+  description="赵无为的个人网站：读诸子百家，尤好庄子；写代码，也写山水。"
 >
   <section class="hero container">
+    <Taiji class="hero-taiji" />
+
     <div class="hero-inscription" aria-hidden="true">
       <span class="vertical-text">山河入卷</span>
       <span class="seal">墨</span>
     </div>
 
-    <div class="eyebrow">个人站 / 2026</div>
+    <div class="eyebrow">诸子百家 / 读庄</div>
     <h1>赵无为</h1>
-    <p class="subtitle">墨纸山河 — 在纸上写代码，在山水间散步。</p>
+    <p class="subtitle">墨纸山河 — 乘物以游心，托不得已以养中。</p>
     <p class="lede">
-      这里放长文、文档、项目演示和前端框架实验。背景是一幅固定的山水：群山连绵，
-      长城蜿蜒，六十四卦隐于天际；内容写在宣纸与墨色之间。
+      喜欢诸子百家，尤其庄子。这里放长文、文档、项目演示和前端框架实验；
+      背景是一幅固定的山水，文字写在宣纸与墨色之间，偶尔停下来读一段庄周。
     </p>
 
     <div class="actions">
@@ -35,6 +38,19 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       ls ./sections
       <span class="cursor"></span>
     </div>
+  </section>
+
+  <section class="section container">
+    <div class="eyebrow">读庄 / ZHUANGZI</div>
+    <figure class="quote-band">
+      <span class="seal quote-seal" aria-hidden="true">
+        庄
+      </span>
+      <blockquote>
+        「天地有大美而不言，四时有明法而不议，万物有成理而不说。」
+        <cite>—《庄子·知北游》</cite>
+      </blockquote>
+    </figure>
   </section>
 
   <section class="section container">
@@ -73,13 +89,13 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
   <section class="section container">
     <div class="section-head">
-      <div class="eyebrow">贰 / STYLEGUIDE</div>
-      <h2>先看设计，再看内容</h2>
-      <p>颜色、字体、按钮、卡片、导航、文章排版和表单，都放在一个页面里。</p>
+      <div class="eyebrow">贰 / ABOUT</div>
+      <h2>关于赵无为</h2>
+      <p>读诸子百家，尤好庄子；写代码，也写山水。</p>
     </div>
 
-    <a class="btn btn-ghost" href="/styleguide">
-      打开风格指南
+    <a class="btn btn-ghost" href="/about">
+      关于这个站
     </a>
   </section>
 </BaseLayout>

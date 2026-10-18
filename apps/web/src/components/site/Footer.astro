@@ -4,16 +4,46 @@ const year = new Date().getFullYear();
 
 <footer class="footer">
   <div class="footer-inner">
-    <div>赵无为 · 墨纸山河 · 故宫色谱</div>
-    <div>Astro 7 · Tailwind 4 · KaTeX · © {year}</div>
-    <div>
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">
+        赵无为
+      </a>
+      <p class="footer-tagline">读诸子百家，尤好庄周。写代码，也写山水。</p>
+      <p class="footer-quote">
+        「天地与我并生，而万物与我为一。」
+        <span>—《庄子·齐物论》</span>
+      </p>
+    </div>
+
+    <nav class="footer-column" aria-label="内容">
+      <div class="footer-heading">内容</div>
+      <a href="/blog">博客</a>
+      <a href="/docs">文档</a>
+      <a href="/projects">项目</a>
+      <a href="/lab">实验室</a>
+    </nav>
+
+    <nav class="footer-column" aria-label="更多">
+      <div class="footer-heading">更多</div>
       <a href="/search">搜索</a>
-      <span aria-hidden="true"> · </span>
+      <a href="/about">关于</a>
       <a href="/rss.xml">RSS</a>
-      <span aria-hidden="true"> · </span>
       <a href="/styleguide">风格指南</a>
-      <span aria-hidden="true"> · </span>
-      <a href="#main-content">回到顶部 ↑</a>
+    </nav>
+
+    <nav class="footer-column" aria-label="连接">
+      <div class="footer-heading">连接</div>
+      <a href="https://github.com/cherishtong" target="_blank" rel="noreferrer">
+        GitHub
+      </a>
+      <a href="#main-content">回到顶部</a>
+    </nav>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© {year} 赵无为</div>
+    <div>
+      以道观之，物无贵贱。<span class="footer-source">—《庄子·秋水》</span>
     </div>
   </div>
 </footer>

@@ -1,6 +1,6 @@
 # 赵无为 · 个人网站
 
-赵无为的个人网站，主题叫「墨纸山河」：以故宫色谱、书法与山水为底色。使用 Astro 7 + pnpm workspace 构建，内容以 Markdown / MDX 为主，并用 React、Vue 做框架示例。
+赵无为的个人网站，主题叫「墨纸山河」：以故宫色谱、书法与山水为底色；读诸子百家，尤好庄子。使用 Astro 7 + pnpm workspace 构建，内容以 Markdown / MDX 为主，并用 React、Vue 做框架示例。
 
 ## 技术栈
 
@@ -109,12 +109,13 @@ order: 3
 
 ## 主题
 
-主题名为 **墨纸山河 / Ink & Vermilion**。
+网站名：**赵无为**。主题名为 **墨纸山河 / Ink & Vermilion**，气质参考诸子百家，尤好庄子。
 
 - 主色：宣纸 `#F3EDE1`、墨色 `#211E1A`、宫墙红 `#8C1F28`
 - 辅助色：鎏金 `#B08D57`、石青 `#2F5D62`、石绿 `#4F6B57`、琉璃黄 `#B8862B`
 - 正文：思源宋体 17px / 1.95
 - 题字与印章：Ma Shan Zheng
+- 太极图：Header logo + 首页 Hero 的浅色水印（`apps/web/src/components/site/Taiji.astro`）
 - 背景：`apps/web/src/components/background/LandscapeBackdrop.astro`
   - 固定山水层：群山、长城、烽火台、六十四卦、日月、飞鸟、云雾
   - 背景自己的 CSS 变量也在组件内，换背景时整体替换即可
