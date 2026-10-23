@@ -1,4 +1,4 @@
-export const DOC_CATEGORY_ORDER = ['个人全局配置', '我的学习', '软件', '兴趣'] as const;
+export const DOC_CATEGORY_ORDER = ['个人全局配置', '我的学习', '软件', '项目', '兴趣'] as const;
 
 export function docCategoryRank(category: string): number {
   const index = DOC_CATEGORY_ORDER.indexOf(category as (typeof DOC_CATEGORY_ORDER)[number]);
